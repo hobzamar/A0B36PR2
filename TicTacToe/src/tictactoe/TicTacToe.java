@@ -10,10 +10,8 @@ package tictactoe;
  */
 public class TicTacToe {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        System.out.println("Hello world");
+        PreStart o=new PreStart();
+        o.setVisible(true);
     }
 }
