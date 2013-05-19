@@ -24,13 +24,16 @@ public class EndOperNet implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if(a!=0){    
+       /* if(a!=0){    
             WindowNET s = new WindowNET(a);
-            s.setVisible(true);  
+            s.setVisible(true);
+            l.dispose();
+            E.dispose();
         }
+        else{*/
        l.kill();
        E.kill();               
-       
+       // }
        
     }
 }
