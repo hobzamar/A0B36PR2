@@ -46,6 +46,7 @@ public class EndWinNet extends JFrame {
         C.addActionListener(new EndOperNet(this,0,l));
     
     }     
+  
     public void kill() {
                 WindowEvent wev = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
                 Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(wev);
