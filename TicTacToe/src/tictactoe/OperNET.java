@@ -17,35 +17,40 @@ import javax.swing.JFrame;
  */
 public class OperNET implements ActionListener{   
     Boolean over=false;
-    int a,b;    
+    int a,b,c;    
     int[][] x;
     int[]y;   
     WindowNET l;
     //private int citac;
 
-       public OperNET(int a, int b, int[][]x,int[]y,WindowNET l){
+       public OperNET(int a, int b, int[][]x,int[]y,WindowNET l,int c){
          this.a=a;
          this.b=b;
          this.x=x;
          this.y=y;
          this.l=l;
+         this.c=c;
            }
     @Override
     public void actionPerformed(ActionEvent event)
     {if("".equals(((JButton) event.getSource()).getText())){
        if(y[0]%2==1){
            ((JButton) event.getSource()).setText("X");
-           ((JButton) event.getSource()).setForeground(Color.red);
-           //((JButton) event.getSource()).setBackground(Color.red);
+           ((JButton) event.getSource()).setForeground(Color.red);           
        x[a][b]=1;}
+       
        else{((JButton) event.getSource()).setText("O");
-       ((JButton) event.getSource()).setForeground(Color.blue);
-       //((JButton) event.getSource()).setBackground(Color.blue);
+       ((JButton) event.getSource()).setForeground(Color.blue);       
        x[a][b]=2;}
+       
+       
+       
        y[0]++;       
        konec(x,event);
         
     }}
+    
+    
     public void konec(int[][]derp,ActionEvent e){ //has anyone won?
     for (int i=0;i<derp.length-4;i++)
                 {for (int j=0;j<derp[i].length;j++)

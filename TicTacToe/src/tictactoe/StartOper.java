@@ -30,13 +30,15 @@ public class StartOper implements ActionListener{
         if(b==2){
         Window o = new Window(a);
         o.setVisible(true);}
+        
         else if(b==1){
-         //   Client C= new Client
-        WindowNET o=new WindowNET(a);
+        //Client C= new Client();
+        WindowNET o=new WindowNET(a,b);
         o.setVisible(true);}
+        
         if (b==0){
         // Server S = new Server();
-        WindowNET o=new WindowNET(a);
+        WindowNET o=new WindowNET(a,b);
         o.setVisible(true);
         }
         w.kill();
