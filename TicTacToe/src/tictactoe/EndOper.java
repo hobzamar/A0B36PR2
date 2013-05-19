@@ -27,10 +27,13 @@ public class EndOper implements ActionListener{
         if(a!=0){
         Window s = new Window(a);      
         s.setVisible(true);
-        }        
+        l.dispose();
+        E.dispose();
+        }
+        else{
         l.kill();
         E.kill();               
-        
+        }
        
     }
 }
