@@ -32,16 +32,16 @@ public class EndWin extends JFrame {
         this.setLayout(null);
         if(A%2==1)L=new JLabel("hrac O vyhral"); 
         else L=new JLabel("hrac X vyhral");         
-        L.setBounds(20,20,150,40);
+        L.setBounds(50,20,150,40);
         this.add(L);
         
         B=new JButton("hrat znovu");
-        B.setBounds(0,100,100,32);
+        B.setBounds(40,100,100,32);
         this.add(B);        
         B.addActionListener(new EndOper(this,D,l));
         
         C=new JButton("konec");
-        C.setBounds(120,100,100,32);
+        C.setBounds(160,100,100,32);
         this.add(C);        
         C.addActionListener(new EndOper(this,0,l));
     

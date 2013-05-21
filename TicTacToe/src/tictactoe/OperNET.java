@@ -6,8 +6,12 @@ package tictactoe;
 
 
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -19,11 +23,11 @@ public class OperNET implements ActionListener{
     Boolean over=false;
     int a,b,c;    
     int[][] x;
-    int[]y;   
+    boolean[]y;   
     WindowNET l;
     //private int citac;
 
-       public OperNET(int a, int b, int[][]x,int[]y,WindowNET l,int c){
+       public OperNET(int a, int b, int[][]x,boolean[]y,WindowNET l,int c){
          this.a=a;
          this.b=b;
          this.x=x;
@@ -33,8 +37,9 @@ public class OperNET implements ActionListener{
            }
     @Override
     public void actionPerformed(ActionEvent event)
-    {if("".equals(((JButton) event.getSource()).getText())){
-       if(y[0]%2==1){
+    {if("".equals(((JButton) event.getSource()).getText())&&y[0]){
+        
+       if(y[1]){
            ((JButton) event.getSource()).setText("X");
            ((JButton) event.getSource()).setForeground(Color.red);           
        x[a][b]=1;}
@@ -42,10 +47,16 @@ public class OperNET implements ActionListener{
        else{((JButton) event.getSource()).setText("O");
        ((JButton) event.getSource()).setForeground(Color.blue);       
        x[a][b]=2;}
+        try {
+            l.outStream.writeObject(new Point(a, b));
+        } catch (IOException ex) {
+            Logger.getLogger(OperNET.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
        
        
-       y[0]++;       
+       y[0]=!y[0];
+       y[1]=!y[1];
        konec(x,event);
         
     }}
@@ -114,7 +125,14 @@ public class OperNET implements ActionListener{
                     { l.setTitle("Nekdo vyhral");
                     over=true;}
                     }}
-    if(over){  EndWinNet konec = new EndWinNet(y[0],(derp.length),l);
+    if(over){
+           
+        try {
+            l.outStream.writeObject(new Point(-1,-1));
+        } catch (IOException ex) {
+            Logger.getLogger(OperNET.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        EndWinNet konec = new EndWinNet(y[0],(derp.length),l);
         konec.setVisible(true);
         l.setEnabled(false);
     }

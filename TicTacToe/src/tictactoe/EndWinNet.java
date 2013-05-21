@@ -15,13 +15,13 @@ import javax.swing.JLabel;
  * @author Martin
  */
 public class EndWinNet extends JFrame {
-    int A;
+    boolean A;
     int D;
     JLabel L;
     JButton B;
     JButton C;
     WindowNET l;
-    public EndWinNet(int a,int b,WindowNET l) {
+    public EndWinNet(boolean a,int b,WindowNET l) {
        // super("moje okno");
         this.A=a;
         this.D=b;
@@ -30,7 +30,7 @@ public class EndWinNet extends JFrame {
         this.setTitle("Konec hry");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        
         this.setLayout(null);
-        if(A%2==1)L=new JLabel("hrac O vyhral"); 
+        if(A)L=new JLabel("hrac O vyhral"); 
         else L=new JLabel("hrac X vyhral");         
         L.setBounds(20,20,150,40);
         this.add(L);
